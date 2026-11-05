@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Open attendance{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('course_detail', course_id=attendance_session['course_id']) }}">← {{ attendance_session['course_title'] }}</a>
+<section class="session-layout"><div class="session-copy"><p class="eyebrow">ATTENDANCE SESSION / LIVE</p><h1>{{ attendance_session['course_title'] }}</h1><p class="lead">Students can scan the QR code or enter the session code from their dashboard.</p><div class="session-code-panel"><span>SESSION CODE</span><strong>{{ attendance_session['attendance_code'] }}</strong><small>Valid until {{ attendance_session['expires_at']|replace('T', ' ')|replace('+00:00', ' UTC') }}</small></div><p class="session-hint">Check-ins are limited to enrolled students and can only be recorded once per session.</p></div><div class="qr-panel"><img src="data:image/png;base64,{{ qr_data }}" alt="QR code for {{ attendance_session['course_title'] }} attendance"><p>SCAN TO OPEN CHECK-IN</p><a class="table-link" href="{{ url_for('mark_attendance', token=attendance_session['token']) }}">Open check-in link ↗</a></div></section>
+{% endblock %}

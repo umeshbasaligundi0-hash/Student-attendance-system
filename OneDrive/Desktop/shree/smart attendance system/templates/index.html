@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Smart student attendance{% endblock %}
+{% block content %}
+<section class="welcome-grid">
+  <div class="welcome-copy">
+    <p class="eyebrow">CLASSROOM CHECK-IN, REBUILT</p>
+    <h1>Attendance that<br><span>keeps up.</span></h1>
+    <p class="lead">Open a class session, share a QR code, and keep a clean record without passing around a paper sheet.</p>
+    <div class="welcome-actions"><a class="button primary" href="{{ url_for('register') }}">Get started <span aria-hidden="true">↗</span></a><a class="button quiet" href="{{ url_for('login') }}">Sign in</a></div>
+    <div class="welcome-note"><span class="status-pip"></span> QR + short-code check-in · downloadable reports</div>
+  </div>
+  <div class="visual-panel" aria-label="Attendance dashboard illustration">
+    <div class="visual-top"><span>LIVE SESSION</span><span class="live-state">● OPEN</span></div>
+    <div class="visual-title">Database Systems <span>CS 204</span></div>
+    <div class="visual-time">Today, 10:30 AM <span>· 25 min remaining</span></div>
+    <div class="attendance-visual"><div class="ring"><strong>28</strong><small>checked in</small></div><div class="visual-stats"><div><strong>32</strong><span>ENROLLED</span></div><div><strong>87.5%</strong><span>ATTENDANCE</span></div></div></div>
+    <div class="scan-strip"><span class="scan-square">▦</span><span>Session code</span><strong>7K4M2Q</strong></div>
+    <div class="visual-line line-one"></div><div class="visual-line line-two"></div>
+  </div>
+</section>
+<section class="feature-row"><div><span class="feature-number">01</span><strong>One scan</strong><p>Students confirm check-in from their own device.</p></div><div><span class="feature-number">02</span><strong>Time-limited</strong><p>Each session closes automatically after its timer.</p></div><div><span class="feature-number">03</span><strong>Ready to report</strong><p>Export a session-by-session CSV at any time.</p></div></section>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Confirm attendance{% endblock %}
+{% block content %}
+<section class="confirm-layout"><div class="confirm-marker">✓</div><p class="eyebrow">STUDENT CHECK-IN</p><h1>{{ attendance_session['course_title'] }}</h1><p class="lead">Confirm your attendance for this class session.</p><div class="confirm-detail"><span>Session closes</span><strong>{{ attendance_session['expires_at']|replace('T', ' ')|replace('+00:00', ' UTC') }}</strong></div>{% if already_marked %}<div class="result-box success-result"><strong>Attendance recorded</strong><span>Your check-in for this session is saved.</span></div>{% elif expired %}<div class="result-box error-result"><strong>Session expired</strong><span>Ask your teacher to open a new session.</span></div>{% else %}<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="button primary full" type="submit">Confirm attendance <span aria-hidden="true">✓</span></button></form>{% endif %}<a class="table-link centered-link" href="{{ url_for('course_detail', course_id=attendance_session['course_id']) }}">Return to course</a></section>
+{% endblock %}

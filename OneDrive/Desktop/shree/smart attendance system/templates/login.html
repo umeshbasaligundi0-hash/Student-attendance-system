@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block content %}
+<section class="auth-layout"><div class="auth-aside"><p class="eyebrow">WELCOME BACK</p><h1>Your classes,<br>in one place.</h1><p>Continue to your course workspace and attendance records.</p></div><form class="form-panel" method="post">
+  <h2>Sign in</h2><p class="form-hint">Use your account email and password.</p><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label>Email address<input type="email" name="email" autocomplete="email" required></label>
+  <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+  <button class="button primary full" type="submit">Continue <span aria-hidden="true">↗</span></button>
+  <p class="form-foot">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+</form></section>
+{% endblock %}

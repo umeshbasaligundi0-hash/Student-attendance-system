@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Create account{% endblock %}
+{% block content %}
+<section class="auth-layout"><div class="auth-aside"><p class="eyebrow">START HERE</p><h1>A better way<br>to show up.</h1><p>Create a teacher account to organize classes or a student account to join them.</p></div><form class="form-panel" method="post">
+  <h2>Create account</h2><p class="form-hint">Takes less than a minute.</p><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label>Full name<input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+  <label>Email address<input type="email" name="email" autocomplete="email" required></label>
+  <label>Password<input type="password" name="password" minlength="8" autocomplete="new-password" required><small>At least 8 characters</small></label>
+  <label>Account type<select name="role"><option value="student">Student</option><option value="teacher">Teacher</option></select></label>
+  <button class="button primary full" type="submit">Create account <span aria-hidden="true">↗</span></button>
+  <p class="form-foot">Already registered? <a href="{{ url_for('login') }}">Sign in</a></p>
+</form></section>
+{% endblock %}
